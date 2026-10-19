@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Student Register</h1>
+    <p class="stats">
+      <span><b id="statTotal">0</b> students</span>
+      <span>Average marks <b id="statAvg">–</b></span>
+    </p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2 id="formTitle">Add a student</h2>
+      <form id="studentForm">
+        <input type="hidden" id="studentId">
+        <label>Full name
+          <input type="text" id="name" required placeholder="e.g. Simran Kaur">
+        </label>
+        <label>Roll number
+          <input type="text" id="roll" required placeholder="e.g. 2024-017">
+        </label>
+        <label>Course
+          <input type="text" id="course" required placeholder="e.g. B.Sc Computer Science">
+        </label>
+        <label>Marks (0–100)
+          <input type="number" id="marks" required min="0" max="100">
+        </label>
+        <p class="error" id="error" role="alert"></p>
+        <div class="actions">
+          <button type="submit" id="saveBtn">Add student</button>
+          <button type="button" id="cancelBtn" class="ghost" hidden>Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel list">
+      <div class="list-head">
+        <h2>Students</h2>
+        <input type="search" id="search" placeholder="Search by name, roll or course" aria-label="Search students">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Roll no.</th><th>Course</th><th>Marks</th><th></th></tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="empty">No students yet. Add the first one using the form.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
